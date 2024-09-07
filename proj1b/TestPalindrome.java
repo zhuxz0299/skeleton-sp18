@@ -16,4 +16,28 @@ public class TestPalindrome {
         }
         assertEquals("persiflage", actual);
     }
+
+    @Test
+    public void testIsPalindrome() {
+        String pali1 = "oio";
+        String pali2 = "i";
+        String pali3 = "";
+        String pali4 = "slfksaaskfls";
+        String pali5 = "AA";
+        assertTrue(palindrome.isPalindrome(pali1));
+        assertTrue(palindrome.isPalindrome(pali2));
+        assertTrue(palindrome.isPalindrome(pali3));
+        assertTrue(palindrome.isPalindrome(pali4));
+        assertTrue(palindrome.isPalindrome(pali5));
+    }
+
+    @Test
+    public void testIsPalindrome2() {
+        String nonPali1 = "lke";
+        String nonPali2 = "persiflage";
+        String nonPali3 = "aaaaab";
+        assertFalse(palindrome.isPalindrome(nonPali1));
+        assertFalse(palindrome.isPalindrome(nonPali2));
+        assertFalse(palindrome.isPalindrome(nonPali3));
+    }
 }
