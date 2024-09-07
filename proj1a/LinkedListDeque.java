@@ -1,7 +1,7 @@
 public class LinkedListDeque<T> {
-    public class IntNode {
-        public T value;
-        public IntNode prev, next;
+    private class IntNode {
+        T value;
+        IntNode prev, next;
 
         public IntNode() {
             prev = null;
@@ -75,23 +75,27 @@ public class LinkedListDeque<T> {
     }
 
     public T get(int index) {
-        if (index >= size)
+        if (index >= size) {
             return null;
+        }
         IntNode p = sentinal.next;
-        for (int i = 0; i < index; i++)
+        for (int i = 0; i < index; i++) {
             p = p.next;
+        }
         return p.value;
     }
 
     public T getRecursive(int index) {
-        if (index >= size)
+        if (index >= size) {
             return null;
+        }
         return getRecursive(index, sentinal.next);
     }
 
     private T getRecursive(int index, IntNode p) {
-        if (index == 0)
+        if (index == 0) {
             return p.value;
+        }
         return getRecursive(index - 1, p.next);
     }
 }
