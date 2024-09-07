@@ -7,6 +7,16 @@ public class Palindrome {
     }
 
     public boolean isPalindrome(String word) {
+        if (word.length() <= 1)
+            return true;
+        Deque<Character> wordDeque = wordToDeque(word);
+        while (wordDeque.size() > 1) {
+            char first = wordDeque.removeFirst();
+            char last = wordDeque.removeLast();
+            if (first != last) {
+                return false;
+            }
+        }
         return true;
     }
 }
