@@ -105,6 +105,13 @@ public class LinkedListDequeTest {
         dlist.removeFirst();
         System.out.println(dlist.removeFirst());
         dlist.printDeque();
+        System.out.println("size of dlist now is " + dlist.size());
+
+        for (int i = 0; i < 4; i++) {
+            dlist.removeFirst();
+        }
+        System.out.println("size of dlist now is " + dlist.size());
+
     }
 
     public static void main(String[] args) {

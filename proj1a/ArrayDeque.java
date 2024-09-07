@@ -29,8 +29,9 @@ public class ArrayDeque<T> {
      */
     private void halveArraySize() {
         T[] newArray = (T[]) new Object[arrayLen / 2];
-        for (int i = (start + 1) % arrayLen, j = 1; i != end; i = (i + 1) % arrayLen, j++){
-            newArray[j] = items[i];}
+        for (int i = (start + 1) % arrayLen, j = 1; i != end; i = (i + 1) % arrayLen, j++) {
+            newArray[j] = items[i];
+        }
         items = newArray;
         end = size() + 1;
         start = 0;
@@ -40,15 +41,17 @@ public class ArrayDeque<T> {
     public void addFirst(T item) {
         items[start] = item;
         start = (start + arrayLen - 1) % arrayLen;
-        if (start == end){
-            doubleArraySize();}
+        if (start == end) {
+            doubleArraySize();
+        }
     }
 
     public void addLast(T item) {
         items[end] = item;
         end = (end + 1) % arrayLen;
-        if (start == end){
-            doubleArraySize();}
+        if (start == end) {
+            doubleArraySize();
+        }
     }
 
     public boolean isEmpty() {
@@ -60,24 +63,33 @@ public class ArrayDeque<T> {
     }
 
     public void printDeque() {
-        for (int i = (start + 1) % arrayLen; i != end; i = (i + 1) % arrayLen){
-            System.out.print(items[i] + " ");}
+        for (int i = (start + 1) % arrayLen; i != end; i = (i + 1) % arrayLen) {
+            System.out.print(items[i] + " ");
+        }
         System.out.print("\n");
     }
 
     public T removeFirst() {
+        if (size() == 0) {
+            return null;
+        }
         T firstItem = items[(start + 1) % arrayLen];
         start = (start + 1) % arrayLen;
-        if (arrayLen >= 16 && size() * 4 < arrayLen){
-            halveArraySize();}
+        if (arrayLen >= 16 && size() * 4 < arrayLen) {
+            halveArraySize();
+        }
         return firstItem;
     }
 
     public T removeLast() {
+        if (size() == 0) {
+            return null;
+        }
         T lastItem = items[(end + arrayLen - 1) % arrayLen];
         end = (end + arrayLen - 1) % arrayLen;
-        if (arrayLen >= 16 && size() * 4 < arrayLen){
-            halveArraySize();}
+        if (arrayLen >= 16 && size() * 4 < arrayLen) {
+            halveArraySize();
+        }
         return lastItem;
     }
 
