@@ -43,7 +43,7 @@ public class TestPalindrome {
     }
 
     @Test
-    public void testIsPalinOffByOne(){
+    public void testIsPalinOffByOne() {
         String word1 = "flake";
         String word2 = "";
         String word3 = "a";
@@ -55,7 +55,7 @@ public class TestPalindrome {
     }
 
     @Test
-    public void testIsPalinOffByOne2(){
+    public void testIsPalinOffByOne2() {
         String word1 = "aa";
         String word2 = "aB";
         String word3 = "ilke";
