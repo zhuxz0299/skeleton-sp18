@@ -52,7 +52,7 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
     }
 
     /**
-     * Dequeue oldest item in the ring buffer. If the buffer is empty, then
+     * Dequeue the oldest item in the ring buffer. If the buffer is empty, then
      * throw new RuntimeException("Ring buffer underflow"). Exceptions
      * covered Monday.
      */
@@ -81,5 +81,26 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
         return rb[first];
     }
 
-    // TODO: When you get to part 5, implement the needed code to support iteration.
+    // When you get to part 5, implement the needed code to support iteration.
+    public Iterator<T> iterator() {
+        return new RingBufferIterator();
+    }
+
+    private class RingBufferIterator implements Iterator<T> {
+        private int wizPos;
+
+        public RingBufferIterator() {
+            wizPos = 0;
+        }
+
+        public boolean hasNext() {
+            return wizPos < fillCount;
+        }
+
+        public T next() {
+            T returnValue = rb[(wizPos + first) % capacity];
+            wizPos++;
+            return returnValue;
+        }
+    }
 }
